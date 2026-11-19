@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRISNOVA | Engineering Vision. Empowering Automation.</title>
+  <meta name="description" content="DRISNOVA (Drisnova Innovation Pvt Ltd) is an industrial technology and engineering company delivering intelligent machine vision, AI-powered inspection, and robotics integration solutions.">
+  <meta name="keywords" content="Industrial Machine Vision, AI Vision Inspection, Robotics Integration, Industrial Automation, Cognex, Keyence, FANUC, Mech-Mind 3D, GR&R, Drisnova">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300d2ff'><circle cx='12' cy='12' r='4'/><path d='M12 2v3m0 14v3M2 12h3m14 0h3'/></svg>">
+</head>
+<body>
+
+  <!-- ==================== SITE HEADER ==================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="DRISNOVA Homepage">
+        <div class="brand-icon">
+          <!-- Stylized Camera Aperture / Reticle SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="m14.31 8 5.74 9.94"/>
+            <path d="M9.69 8h11.48"/>
+            <path d="m7.38 12 5.74-9.94"/>
+            <path d="M9.69 16 3.95 6.06"/>
+            <path d="M14.31 16H2.83"/>
+            <path d="m16.62 12-5.74 9.94"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="name">DRISNOVA</span>
+          <span class="tagline">Engineering Vision</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="industries.html" class="nav-link">Industries</a>
+        <a href="technologies.html" class="nav-link">Technologies</a>
+        <a href="global-presence.html" class="nav-link">Global Presence</a>
+        <a href="training-careers.html" class="nav-link">Training & Careers</a>
+        <a href="founder.html" class="nav-link">Founder</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm">Discuss Project</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <div class="section-badge">
+            <span class="dot"></span> Industrial Machine Vision & Robotics
+          </div>
+          
+          <h1 class="hero-lead-title">
+            SEE BEYOND AUTOMATION.
+            <span class="gradient-text">ENGINEER THE FUTURE.</span>
+          </h1>
+
+          <div class="hero-tagline-sub">
+            Intelligent Vision. Smarter Robotics. Better Manufacturing.
+          </div>
+
+          <p class="hero-description">
+            <strong>DRISNOVA</strong> (Drisnova Innovation Pvt Ltd) is an industrial technology and engineering company specializing in machine vision, AI-powered inspection, robotics integration and industrial automation solutions.
+            We help industries transform complex manufacturing challenges into intelligent, reliable and efficient solutions through advanced vision technologies and engineering expertise.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="services.html" class="btn btn-primary btn-lg">
+              Explore Our Solutions
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="contact.html" class="btn btn-outline btn-lg">
+              Discuss Your Project
+            </a>
+          </div>
+
+          <p style="font-size: 0.95rem; color: #94a3b8;">
+            From concept development and proof of concept to programming, integration, installation and commissioning, we support customers throughout their automation journey.
+            <br><strong style="color: #38bdf8;">Our expertise. Your manufacturing advantage.</strong>
+          </p>
+        </div>
+
+        <!-- Interactive Machine Vision HUD -->
+        <div class="vision-hud-card">
+          <div class="hud-topbar">
+            <div class="hud-indicator">
+              <span class="hud-blink-dot"></span> LIVE INSPECTION ENGINE
+            </div>
+            <div class="hud-meta">MODEL: DIS-9000-AI</div>
+          </div>
+
+          <div class="hud-viewport">
+            <div class="hud-scanline"></div>
+            <div class="hud-crosshair"></div>
+            <div class="corner-bracket corner-tl"></div>
+            <div class="corner-bracket corner-tr"></div>
+            <div class="corner-bracket corner-bl"></div>
+            <div class="corner-bracket corner-br"></div>
+
+            <div class="hud-target-box" id="hudTargetBox">
+              <div class="hud-target-label" id="hudTargetLabel">AI DEFECT DETECTION</div>
+              
+              <!-- Center Reticle Graphic -->
+              <svg width="60" height="60" viewBox="0 0 100 100" style="margin: auto; opacity: 0.85;">
+                <circle cx="50" cy="50" r="45" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="4 4" fill="none" />
+                <circle cx="50" cy="50" r="28" stroke="#38bdf8" stroke-width="1.5" fill="none" />
+                <circle cx="50" cy="50" r="6" fill="#00d2ff" />
+                <line x1="50" y1="0" x2="50" y2="100" stroke="#00d2ff" stroke-width="1" stroke-opacity="0.5" />
+                <line x1="0" y1="50" x2="100" y2="50" stroke="#00d2ff" stroke-width="1" stroke-opacity="0.5" />
+              </svg>
+
+              <div class="hud-target-readout" id="hudTargetReadout">
+                Surface Integrity: <span class="status-pass">PASS (99.8%)</span><br>
+                Defect Map: Clean Specimen
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Mode Switcher -->
+          <div class="hud-controls">
+            <button class="hud-btn active" data-mode="defect">Surface AI</button>
+            <button class="hud-btn" data-mode="dimension">Metrology</button>
+            <button class="hud-btn" data-mode="robot">Robot Guidance</button>
+            <button class="hud-btn" data-mode="ocr">OCR / Barcode</button>
+          </div>
+
+          <div class="hud-metrics-row">
+            <div class="hud-metric-box">
+              <div class="hud-metric-name">Cycle Time</div>
+              <div class="hud-metric-val" id="hudMetricVal1">18 ms</div>
+            </div>
+            <div class="hud-metric-box">
+              <div class="hud-metric-name">Frame Rate</div>
+              <div class="hud-metric-val" id="hudMetricVal2">55.5 FPS</div>
+            </div>
+            <div class="hud-metric-box">
+              <div class="hud-metric-name">Accuracy</div>
+              <div class="hud-metric-val" id="hudMetricVal3">99.8%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Stats Bar -->
+      <div class="hero-stats-strip">
+        <div class="stat-item">
+          <div class="stat-number">12<span>+</span></div>
+          <div class="stat-label">Years Founder Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1000<span>+</span></div>
+          <div class="stat-label">Vision Applications</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1000<span>+</span></div>
+          <div class="stat-label">POC & Tech Solutions</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">9<span>+</span></div>
+          <div class="stat-label">Countries Global Reach</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHAT WE DO ==================== -->
+  <section class="section" id="capabilities">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-badge">Core Capabilities</div>
+        <h2 class="section-title">What <span class="highlight">We Do</span></h2>
+        <p class="section-subtitle">
+          We bring together industrial vision, artificial intelligence and robotics to create practical automation solutions for real manufacturing environments.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <!-- 1 -->
+        <div class="card">
+          <div class="card-icon-wrapper">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <h3 class="card-title">1. Industrial Machine Vision Systems</h3>
+          <p class="card-description">
+            Complete rule-based and smart vision systems for presence detection, measurement, surface defect checks, and quality inspection.
+          </p>
+          <div class="capability-tags">
+            <span class="capability-tag">Cognex</span>
+            <span class="capability-tag">Keyence</span>
+            <span class="capability-tag">Omron</span>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card">
+          <div class="card-icon-wrapper">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="card-title">2. AI-Based Vision Inspection</h3>
+          <p class="card-description">
+            Deep-learning powered visual inspection for complex surfaces, organic variations, defect classification and difficult inspections.
+          </p>
+          <div class="capability-tags">
+            <span class="capability-tag">Deep Learning</span>
+            <span class="capability-tag">Surface AI</span>
+            <span class="capability-tag">Feasibility POC</span>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="card">
+          <div class="card-icon-wrapper">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="card-title">3. Robotic Vision Integration</h3>
+          <p class="card-description">
+            Intelligent robotic operations with camera-to-robot calibration, 2D/3D bin picking, pick-and-place, and sorting guidance.
+          </p>
+          <div class="capability-tags">
+            <span class="capability-tag">FANUC</span>
+            <span class="capability-tag">Mech-Mind 3D</span>
+            <span class="capability-tag">Coordinate Sync</span>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="card">
+          <div class="card-icon-wrapper">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="card-title">4. Vision System Programming</h3>
+          <p class="card-description">
+            Expert programming of industrial vision algorithms, custom toolchains, PLC handshakes, and user interface development.
+          </p>
+          <div class="capability-tags">
+            <span class="capability-tag">Smart Cameras</span>
+            <span class="capability-tag">Tool Config</span>
+            <span class="capability-tag">Communication</span>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="card">
+          <div class="card-icon-wrapper">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="card-title">5. Installation & Commissioning</h3>
+          <p class="card-description">
+            End-to-end deployment including camera optics, specialized lighting, mechanical mounting, PLC integration and validation.
+          </p>
+          <div class="capability-tags">
+            <span class="capability-tag">Optics Setup</span>
+            <span class="capability-tag">Line Integration</span>
+            <span class="capability-tag">Go-Live Support</span>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="card">
+          <div class="card-icon-wrapper">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          </div>
+          <h3 class="card-title">6. Troubleshooting & Retrofit</h3>
+          <p class="card-description">
+            Revitalize existing vision systems without replacing your entire infrastructure. Reduce false rejects and improve cycle times.
+          </p>
+          <div class="capability-tags">
+            <span class="capability-tag">Lighting Tuning</span>
+            <span class="capability-tag">Upgrades</span>
+            <span class="capability-tag">Cycle-Time Cut</span>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card">
+          <div class="card-icon-wrapper">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3 class="card-title">7. GR&R & Capability Studies</h3>
+          <p class="card-description">
+            Validate repeatability, reproducibility and measurement capability to guarantee compliance with rigorous manufacturing standards.
+          </p>
+          <div class="capability-tags">
+            <span class="capability-tag">Gauge R&R</span>
+            <span class="capability-tag">Repeatability</span>
+            <span class="capability-tag">Statistical Audit</span>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+          <div class="card-icon-wrapper">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="card-title">8. Vision Training & Consultation</h3>
+          <p class="card-description">
+            Industry-oriented hands-on training for engineers and technical consulting for feasibility studies, hardware selection and POCs.
+          </p>
+          <div class="capability-tags">
+            <span class="capability-tag">Engineer Upskill</span>
+            <span class="capability-tag">Hardware Audit</span>
+            <span class="capability-tag">Global Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="services.html" class="btn btn-primary">
+          View Complete Service Details & Capabilities
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY DRISNOVA ==================== -->
+  <section class="section" style="background: rgba(14, 22, 40, 0.4); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-badge">Competitive Edge</div>
+        <h2 class="section-title">Why <span class="highlight">DRISNOVA?</span></h2>
+        <p class="section-subtitle">
+          We combine real-world shop-floor experience with engineering discipline to deliver vision systems that stand up to actual factory conditions.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="why-content">
+            <h4>Engineering-Led Approach</h4>
+            <p>Every problem is assessed through root-cause analysis, optics physics, and rigorous software verification.</p>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="why-content">
+            <h4>12+ Years Industry Experience</h4>
+            <p>Founder-level leadership with deep experience across 1,000+ machine vision applications worldwide.</p>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="why-content">
+            <h4>International Manufacturing Standards</h4>
+            <p>Proven execution across USA, Canada, Germany, Mexico, Vietnam and other world-class industrial hubs.</p>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="why-content">
+            <h4>Multi-Platform Expertise</h4>
+            <p>Mastery in Cognex, Keyence, Omron, Hikvision, FANUC Robotics, and Mech-Mind 3D technologies.</p>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="why-content">
+            <h4>Complete Lifecycle Support</h4>
+            <p>From initial proof of concept (POC) and feasibility to programming, line integration, and commissioning.</p>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="why-content">
+            <h4>Production-Centric Design</h4>
+            <p>Solutions engineered around real cycle times, ambient plant lighting variances, vibration, and dust.</p>
+          </div>
+        </div>
+
+        <div class="why-card" style="grid-column: span 2;">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="why-content">
+            <h4>Pan-India Service & Global Remote Advisory</h4>
+            <p>Rapid onsite engineering deployment across industrial corridors in India, paired with secure remote debugging, programming, and feasibility for global manufacturing clients.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMMITMENT SECTION ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="commitment-box">
+        <div class="section-badge" style="margin-bottom: 24px;">Our Core Philosophy</div>
+        <blockquote class="commitment-quote">
+          “We believe automation is not just about installing cameras and robots. It is about making machines see, understand, decide and perform with confidence.”
+        </blockquote>
+        <div class="commitment-author">
+          DRISNOVA – Engineering Intelligence Into Every Inspection.
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="contact.html" class="btn btn-primary">Start Your Vision Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SITE FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-brand-summary">
+          <div class="footer-brand-title">DRISNOVA</div>
+          <div class="footer-brand-tagline">Engineering Vision. Empowering Automation.</div>
+          <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+            Drisnova Innovation Pvt Ltd is an industrial technology engineering company delivering intelligent machine vision, AI inspection, and robotics integration.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #38bdf8;">
+            Industrial Machine Vision | AI | Robotics | Automation
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Our Services</a></li>
+            <li><a href="industries.html" class="footer-link">Industries We Serve</a></li>
+            <li><a href="technologies.html" class="footer-link">Technologies</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="global-presence.html" class="footer-link">Global Presence</a></li>
+            <li><a href="training-careers.html" class="footer-link">Training & Careers</a></li>
+            <li><a href="founder.html" class="footer-link">Founder Profile</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Headquarters</h4>
+          <div class="footer-contact-items">
+            <p><strong>Drisnova Innovation Pvt Ltd</strong></p>
+            <p>Founder & Director: Priyesh Thakare</p>
+            <p>Phone: <a href="tel:+919545475203">+91 9545475203</a></p>
+            <p>Email: <a href="mailto:priyesh@drisnovainnovation.com">priyesh@drisnovainnovation.com</a></p>
+            <p>Web: <a href="http://www.drisnovainnovation.com" target="_blank" rel="noopener">www.drisnovainnovation.com</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          Copyright &copy; 2026 <strong>Drisnova Innovation Pvt Ltd</strong>. All Rights Reserved.
+        </div>
+        <div>
+          Engineering Vision. Empowering Automation.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
