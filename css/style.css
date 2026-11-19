@@ -433,19 +433,63 @@ ul {
 }
 
 /* ===================================================================
-   HERO SECTION
+   HERO SECTION - CINEMATIC INDUSTRIAL BACKGROUND & AMBIENT EFFECTS
    =================================================================== */
 .hero-section {
-  padding: 120px 0 80px 0;
+  padding: 130px 0 90px 0;
   position: relative;
   overflow: hidden;
+  background-image: 
+    radial-gradient(circle at 75% 25%, rgba(0, 210, 255, 0.16) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.2) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(7, 12, 24, 0.88) 0%, rgba(10, 16, 30, 0.94) 55%, #070c18 100%),
+    url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Ambient Canvas Particle Overlay */
+.ambient-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-wrapper {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 48px;
   align-items: center;
+}
+
+/* Floating Technology Badge */
+.floating-tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 22, 40, 0.85);
+  border: 1px solid rgba(0, 210, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 210, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  animation: float-badge 4s ease-in-out infinite;
+}
+
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
 }
 
 .hero-lead-title {
@@ -486,16 +530,21 @@ ul {
   margin-bottom: 48px;
 }
 
-/* Hero Stats Bar */
+/* Hero Stats Bar with Glass & Glow */
 .hero-stats-strip {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 24px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  margin-top: 40px;
+  padding: 26px 32px;
+  background: rgba(14, 22, 40, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 210, 255, 0.08);
+  border-radius: var(--radius-lg);
+  margin-top: 48px;
 }
 
 .stat-item {
@@ -908,6 +957,169 @@ ul {
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+/* ===================================================================
+   PERSON FEEDBACK & INDUSTRIAL CLIENT TESTIMONIALS
+   =================================================================== */
+.testimonials-section {
+  padding: 100px 0;
+  position: relative;
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(7, 12, 24, 0.9) 0%, rgba(14, 22, 40, 0.6) 50%, rgba(7, 12, 24, 0.95) 100%);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.testimonial-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--primary));
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 210, 255, 0.15);
+}
+
+.testimonial-card:hover::before {
+  opacity: 1;
+}
+
+.testimonial-badge-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: 3px;
+  color: #fbbf24;
+  font-size: 0.95rem;
+}
+
+.testimonial-quote {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: #cbd5e1;
+  font-style: italic;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.testimonial-client {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.client-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.35);
+  flex-shrink: 0;
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.client-role {
+  font-size: 0.82rem;
+  color: var(--accent-cyan);
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+.client-company {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+/* Card Media Header Image for Capabilities */
+.card-media-banner {
+  height: 140px;
+  width: calc(100% + 64px);
+  margin: -32px -32px 20px -32px;
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-media-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .card-media-banner img {
+  transform: scale(1.08);
+}
+
+.card-media-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 22, 40, 0.1) 0%, rgba(14, 22, 40, 0.8) 75%, var(--bg-card) 100%);
 }
 
 /* ===================================================================

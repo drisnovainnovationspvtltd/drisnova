@@ -207,4 +207,110 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 900);
     });
   }
+
+  // 5. Interactive Ambient Neural Grid Particles (Hero Section)
+  const canvas = document.getElementById('ambientCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = canvas.parentElement.offsetWidth;
+    let height = canvas.height = canvas.parentElement.offsetHeight;
+
+    window.addEventListener('resize', () => {
+      if (!canvas.parentElement) return;
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    });
+
+    const particles = [];
+    const count = Math.min(Math.floor((width * height) / 18000), 45);
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        radius: Math.random() * 1.8 + 1,
+        color: Math.random() > 0.4 ? 'rgba(0, 210, 255, ' : 'rgba(56, 189, 248, '
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw particle connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 210, 255, ${0.18 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.75;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw and update particles
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + '0.7)';
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#00d2ff';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  }
+
+  // 6. Animated Stat Number Counters
+  const counterElements = document.querySelectorAll('.stat-number[data-target]');
+  if (counterElements.length > 0 && 'IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-target'), 10);
+          const suffix = el.getAttribute('data-suffix') || '+';
+          const duration = 1600;
+          const startTime = performance.now();
+
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const currentVal = Math.floor(easeOut * target);
+
+            el.innerHTML = `${currentVal}<span>${suffix}</span>`;
+
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              el.innerHTML = `${target}<span>${suffix}</span>`;
+            }
+          }
+          requestAnimationFrame(updateCounter);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    counterElements.forEach(el => counterObserver.observe(el));
+  }
 });
