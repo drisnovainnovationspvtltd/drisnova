@@ -73,11 +73,15 @@ document.addEventListener('DOMContentLoaded', () => {
     bottomBar.innerHTML = `
       <a href="tel:+919545475203" class="mobile-bar-btn call">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call Now
+        Call
+      </a>
+      <a href="https://wa.me/919545475203?text=Hello%20DRISNOVA%20Team%2C%20I%20would%20like%20to%20discuss%20a%20machine%20vision%20/%20robotics%20project." target="_blank" rel="noopener" class="mobile-bar-btn whatsapp" style="background: rgba(37, 211, 102, 0.15); color: #25D366; border-color: rgba(37, 211, 102, 0.4);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        WhatsApp
       </a>
       <a href="contact.html" class="mobile-bar-btn quote">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Discuss Project
+        Enquiry
       </a>
     `;
     document.body.appendChild(bottomBar);
@@ -192,10 +196,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         if (formFeedback) {
+          const waMessage = encodeURIComponent(
+            `*New Industrial Vision Enquiry - DRISNOVA*\n` +
+            `• *Name:* ${fullName}\n` +
+            `• *Company:* ${company || 'N/A'}\n` +
+            `• *Email:* ${email}\n` +
+            `• *Phone:* ${phone}\n` +
+            `• *Requirement:* ${projectDesc}`
+          );
+          const waLink = `https://wa.me/919545475203?text=${waMessage}`;
+          const mailSubject = encodeURIComponent(`Industrial Vision Project Enquiry - ${company || fullName}`);
+          const mailBody = encodeURIComponent(
+            `Name: ${fullName}\nCompany: ${company || 'N/A'}\nEmail: ${email}\nPhone: ${phone}\n\nProject Requirement:\n${projectDesc}`
+          );
+          const mailtoLink = `mailto:priyesh@drisnovainnovation.com?subject=${mailSubject}&body=${mailBody}`;
+
           formFeedback.className = 'form-feedback success';
           formFeedback.innerHTML = `
-            <strong>Thank you, ${fullName}!</strong><br>
-            Your enquiry has been successfully logged. Our Technical Director Priyesh Thakare and the DRISNOVA engineering team will review your application specifications and contact you at <strong>${email}</strong> or <strong>${phone}</strong> shortly.
+            <div style="font-size: 1.15rem; font-weight: 700; color: #38bdf8; margin-bottom: 8px;">
+              ✓ Enquiry Successfully Logged!
+            </div>
+            <p style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 16px;">
+              Thank you, <strong>${fullName}</strong>. Technical Director <strong>Priyesh Thakare</strong> and the DRISNOVA engineering team have received your details and will review your application specifications within 24 business hours.
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px;">
+              <a href="${waLink}" target="_blank" rel="noopener" class="btn btn-whatsapp" style="padding: 10px 18px; font-size: 0.88rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                Instant Connect via WhatsApp
+              </a>
+              <a href="${mailtoLink}" class="btn btn-outline" style="padding: 10px 18px; font-size: 0.88rem;">
+                Open in Email Client
+              </a>
+            </div>
           `;
           formFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
@@ -204,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
         }
-      }, 900);
+      }, 700);
     });
   }
 
