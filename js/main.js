@@ -345,4 +345,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     counterElements.forEach(el => counterObserver.observe(el));
   }
+
+  // 7. Interactive 3D Perspective Tilt on Brand Hero Card
+  const brandHeroCard = document.querySelector('.brand-hero-card');
+  if (brandHeroCard && window.matchMedia('(hover: hover)').matches) {
+    brandHeroCard.addEventListener('mousemove', (e) => {
+      const rect = brandHeroCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+      brandHeroCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+    });
+
+    brandHeroCard.addEventListener('mouseleave', () => {
+      brandHeroCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    });
+  }
 });
