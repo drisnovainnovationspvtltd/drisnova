@@ -63,6 +63,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 body {
@@ -73,6 +76,8 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* Background Grid & Ambient Lighting */
@@ -422,7 +427,7 @@ ul {
    HERO SECTION - CINEMATIC INDUSTRIAL BACKGROUND & AMBIENT EFFECTS
    =================================================================== */
 .hero-section {
-  padding: 130px 0 90px 0;
+  padding: 34px 0 60px 0;
   position: relative;
   overflow: hidden;
   background-image: 
@@ -459,6 +464,8 @@ ul {
 .floating-tech-pill {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: 8px;
   background: rgba(14, 22, 40, 0.85);
   border: 1px solid rgba(0, 210, 255, 0.4);
@@ -472,6 +479,7 @@ ul {
   backdrop-filter: blur(10px);
   animation: float-badge 4s ease-in-out infinite;
   letter-spacing: 0.3px;
+  box-sizing: border-box;
 }
 
 .floating-tech-pill strong {
@@ -810,6 +818,8 @@ ul {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: #94a3b8;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 /* ===================================================================
@@ -2181,10 +2191,10 @@ ul {
    PAGE HERO / BANNER COMMON COMPONENT
    =================================================================== */
 .page-hero {
-  padding: 80px 0 60px 0;
+  padding: 40px 0 36px 0;
   background: linear-gradient(180deg, rgba(0, 210, 255, 0.04) 0%, transparent 100%);
   border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .breadcrumbs {
@@ -2389,7 +2399,37 @@ ul {
 
   /* Hero adjustments for Mobile */
   .hero-section {
-    padding: 36px 0 28px 0;
+    padding: 24px 0 24px 0;
+  }
+
+  .floating-tech-pill {
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    max-width: 100%;
+    font-size: 0.78rem;
+    padding: 7px 14px;
+    border-radius: 24px;
+    line-height: 1.45;
+  }
+
+  .brand-logo-img {
+    height: 38px;
+    max-width: 175px;
+  }
+
+  .brand-hero-card {
+    padding: 20px 16px;
+    margin-top: 10px;
+  }
+
+  .brand-showcase-img {
+    max-width: 260px;
+  }
+
+  .brand-pill-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .hero-lead-title {
@@ -2694,8 +2734,25 @@ ul {
 }
 
 @media (max-width: 480px) {
+  .floating-tech-pill {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+    gap: 4px;
+    margin-bottom: 14px;
+    border-radius: 18px;
+    max-width: 100%;
+    line-height: 1.4;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .brand-card-footer-strip {
+    flex-direction: column;
+    gap: 6px;
+  }
+
   .hero-lead-title {
-    font-size: 1.95rem;
+    font-size: 1.85rem;
   }
 
   .hero-stats-strip {
