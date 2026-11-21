@@ -661,44 +661,43 @@ ul {
   box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.08);
 }
 
-/* 1. Precision Vertical Scanner Beam (Totally Vertical, Previous Metallic Specular Shimmer Colors) */
+/* 1. Metallic Shimmer Light Sweep (Original Top-Left to Bottom-Right Corner Sweep) */
 .logo-light-sweep {
   position: absolute;
-  top: 4%;
-  bottom: 4%;
-  width: 36px;
+  top: -60%;
+  left: -130%;
+  width: 70%;
+  height: 220%;
   background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.0) 20%,
-    rgba(0, 210, 255, 0.35) 42%,
-    rgba(255, 255, 255, 0.95) 50%,
-    rgba(249, 115, 22, 0.45) 58%,
-    rgba(255, 255, 255, 0.0) 80%,
-    transparent 100%
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.0) 35%,
+    rgba(0, 210, 255, 0.25) 46%,
+    rgba(255, 255, 255, 0.75) 50%,
+    rgba(249, 115, 22, 0.35) 54%,
+    rgba(255, 255, 255, 0.0) 65%,
+    transparent 80%
   );
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.6), 0 0 22px rgba(0, 210, 255, 0.4), 0 0 16px rgba(249, 115, 22, 0.35);
-  transform: none; /* Totally vertical line, 0deg tilt */
-  animation: logo-vertical-sweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform: rotate(25deg);
+  animation: metallic-light-sweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
-  opacity: 0;
   z-index: 2;
 }
 
-@keyframes logo-vertical-sweep {
+@keyframes metallic-light-sweep {
   0%, 48% {
-    left: -40px;
+    left: -130%;
     opacity: 0;
   }
   52% {
     opacity: 0.95;
   }
   86% {
-    left: calc(100% + 10px);
+    left: 140%;
     opacity: 0.95;
   }
   90%, 100% {
-    left: calc(100% + 10px);
+    left: 140%;
     opacity: 0;
   }
 }
