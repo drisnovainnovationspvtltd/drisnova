@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const mailBody = encodeURIComponent(
             `Name: ${fullName}\nCompany: ${company || 'N/A'}\nEmail: ${email}\nPhone: ${phone}\n\nProject Requirement:\n${projectDesc}`
           );
-          const mailtoLink = `mailto:priyesh@drisnovainnovation.com?subject=${mailSubject}&body=${mailBody}`;
+          const mailtoLink = `mailto:priyesh.t@drisnovainnovation.com?subject=${mailSubject}&body=${mailBody}`;
 
           formFeedback.className = 'form-feedback success';
           formFeedback.innerHTML = `

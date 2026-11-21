@@ -57,7 +57,7 @@ python -m http.server 3000
 - **Company:** Drisnova Innovation Pvt Ltd
 - **Technical Director:** Priyesh Thakare
 - **Phone:** +91 9545475203
-- **Email:** priyesh@drisnovainnovation.com
+- **Email:** priyesh.t@drisnovainnovation.com
 - **Website:** [www.drisnovainnovation.com](http://www.drisnovainnovation.com)
 
 Copyright © 2026 Drisnova Innovation Pvt Ltd. All Rights Reserved.
