@@ -661,53 +661,48 @@ ul {
   box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.08);
 }
 
-/* 1. Precision Vertical Scanner Beam (Forming a PLUS (+) reticle with Horizontal Beam) */
+/* 1. Metallic Shimmer Light Sweep across Chrome Logo (Restored previous inclined position, runs after bottom-to-top laser) */
 .logo-light-sweep {
   position: absolute;
-  top: 6%;
-  bottom: 6%;
-  width: 2px;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 210, 255, 0.4) 20%, #00d2ff 50%, rgba(0, 210, 255, 0.4) 80%, transparent 100%);
-  box-shadow: 0 0 10px #00d2ff, 0 0 18px rgba(0, 210, 255, 0.6);
-  transform: none; /* Changed from inclined rotate(25deg) to vertical to form a PLUS (+) */
-  animation: logo-laser-scan-v 5.5s ease-in-out infinite;
+  top: -60%;
+  left: -130%;
+  width: 70%;
+  height: 220%;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.0) 35%,
+    rgba(0, 210, 255, 0.25) 46%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(249, 115, 22, 0.3) 54%,
+    rgba(255, 255, 255, 0.0) 65%,
+    transparent 80%
+  );
+  transform: rotate(25deg);
+  animation: metallic-light-sweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
-  opacity: 0;
   z-index: 2;
 }
 
-@keyframes logo-laser-scan-v {
-  0%, 6% {
-    left: 20%;
+@keyframes metallic-light-sweep {
+  0%, 48% {
+    left: -130%;
     opacity: 0;
   }
-  12% {
-    left: 20%;
+  52% {
     opacity: 0.95;
   }
-  38% {
-    left: 80%;
+  86% {
+    left: 140%;
     opacity: 0.95;
   }
-  48% {
-    left: 50%;
-    opacity: 1;
-  }
-  68% {
-    left: 50%;
-    opacity: 1;
-  }
-  78% {
-    left: 20%;
-    opacity: 0.95;
-  }
-  85%, 100% {
-    left: 20%;
+  90%, 100% {
+    left: 140%;
     opacity: 0;
   }
 }
 
-/* 2. Precision Horizontal Scanner Beam (Crossing with Vertical Beam to form a PLUS (+)) */
+/* 2. Precision Laser Scanner Beam (Scanning from Bottom to Top First) */
 .logo-scanner-beam {
   position: absolute;
   left: 6%;
@@ -715,44 +710,48 @@ ul {
   height: 2px;
   background: linear-gradient(90deg, transparent 0%, rgba(0, 210, 255, 0.4) 20%, #00d2ff 50%, rgba(0, 210, 255, 0.4) 80%, transparent 100%);
   box-shadow: 0 0 10px #00d2ff, 0 0 18px rgba(0, 210, 255, 0.6);
-  animation: logo-laser-scan-h 5.5s ease-in-out infinite;
+  animation: logo-laser-scan-bottom-to-top 6s ease-in-out infinite;
   pointer-events: none;
   opacity: 0;
   z-index: 2;
 }
 
-@keyframes logo-laser-scan-h {
-  0%, 6% {
-    top: 20%;
+@keyframes logo-laser-scan-bottom-to-top {
+  0% {
+    top: 88%;
     opacity: 0;
   }
-  12% {
-    top: 20%;
+  6% {
+    top: 88%;
     opacity: 0.95;
   }
   38% {
-    top: 80%;
+    top: 12%;
     opacity: 0.95;
   }
-  48% {
-    top: 50%;
-    opacity: 1;
+  44% {
+    top: 12%;
+    opacity: 0;
   }
-  68% {
-    top: 50%;
-    opacity: 1;
-  }
-  78% {
-    top: 20%;
-    opacity: 0.95;
-  }
-  85%, 100% {
-    top: 20%;
+  45%, 100% {
+    top: 88%;
     opacity: 0;
   }
 }
 
-/* 3. Floating Levitation & Specular Glow for 3D Metallic Logo */
+/* 3. Floating Levitation & Live Rotating Camera Shutter for DRISNOVA Logo */
+.brand-logo-composite {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 320px;
+  line-height: 0;
+  animation: logo-3d-float 5s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform, filter;
+  z-index: 1;
+}
+
 .brand-showcase-img {
   width: 100%;
   max-width: 320px;
@@ -761,14 +760,71 @@ ul {
   display: block;
   filter: drop-shadow(0 4px 18px rgba(0, 210, 255, 0.4));
   transition: transform var(--transition-normal);
-  position: relative;
-  z-index: 1;
 }
 
-.animated-metallic-logo {
-  animation: logo-3d-float 5s ease-in-out infinite;
+/* Authentic Camera Iris / Shutter Rotation Animation */
+.rotating-camera-shutter {
+  position: absolute;
+  left: 65.373%;
+  top: 69.883%;
+  width: 9.823%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%) rotate(0deg);
   transform-origin: center center;
+  animation: camera-shutter-rotate 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 3;
   will-change: transform, filter;
+}
+
+@keyframes camera-shutter-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 3px rgba(249, 115, 22, 0.5));
+  }
+  20% {
+    transform: translate(-50%, -50%) rotate(90deg) scale(1);
+    filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.6));
+  }
+  25% {
+    /* Camera Shutter Click / Iris Snap */
+    transform: translate(-50%, -50%) rotate(105deg) scale(0.91);
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.9)) brightness(1.25);
+  }
+  30% {
+    transform: translate(-50%, -50%) rotate(120deg) scale(1.04);
+    filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.7));
+  }
+  35% {
+    transform: translate(-50%, -50%) rotate(135deg) scale(1);
+    filter: drop-shadow(0 0 3px rgba(249, 115, 22, 0.5));
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1);
+    filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.5));
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(270deg) scale(1);
+    filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.6));
+  }
+  75% {
+    /* Second Camera Shutter Click / Iris Snap */
+    transform: translate(-50%, -50%) rotate(285deg) scale(0.91);
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.9)) brightness(1.25);
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(300deg) scale(1.04);
+    filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.7));
+  }
+  85% {
+    transform: translate(-50%, -50%) rotate(315deg) scale(1);
+    filter: drop-shadow(0 0 3px rgba(249, 115, 22, 0.5));
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    filter: drop-shadow(0 0 3px rgba(249, 115, 22, 0.5));
+  }
 }
 
 @keyframes logo-3d-float {
@@ -782,10 +838,14 @@ ul {
   }
 }
 
-.brand-hero-card:hover .animated-metallic-logo {
+.brand-hero-card:hover .brand-logo-composite {
   animation-play-state: paused;
   transform: translateY(-4px) scale(1.035);
   filter: drop-shadow(0 16px 32px rgba(0, 210, 255, 0.65)) drop-shadow(0 0 22px rgba(249, 115, 22, 0.45));
+}
+
+.brand-hero-card:hover .rotating-camera-shutter {
+  animation-duration: 4s;
 }
 
 .brand-card-title {
@@ -2473,6 +2533,7 @@ ul {
     margin-top: 10px;
   }
 
+  .brand-logo-composite,
   .brand-showcase-img {
     max-width: 260px;
   }
